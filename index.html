@@ -5,23 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>第一章：簡單操作實例</title>
+    <title>簡單操作實例</title>
     <style>
         h3 {
             color: red;
         }
 
-        #big,#small{
+        #big,
+        #small {
             border: 1px solid grey;
             padding: 3px;
             background-color: black;
             color: white;
         }
 
-        #big:hover,#small:hover{
+        #big:hover,
+        #small:hover {
             cursor: pointer;
         }
 
+        ul {
+            margin: 30px;
+        }
+
+        li {
+            list-style: none;
+            margin-right: 5px;
+            float: left;
+        }
+
+        a {
+            padding: 20px;
+            background: gray;
+            color: white;
+            float: left;
+            text-decoration: none;
+        }
+
+        .active a {
+            background: red;
+        }
     </style>
 </head>
 
@@ -55,7 +78,7 @@
     </script>
 
     <h3>有一段文字跟兩個按鈕 點擊按鈕縮放字大小</h3>
-    <i id="big">變大</i> 
+    <i id="big">變大</i>
     <i id="small">變小</i>
     <br><br>
     <b id="content">我是一段話。</b>
@@ -123,7 +146,7 @@
 
     <script>
         document.onclick = function () {
-            document.getElementById('random').innerHTML=(parseInt(Math.random() * 100) + 1)
+            document.getElementById('random').innerHTML = (parseInt(Math.random() * 100) + 1)
         }
     </script>
 
@@ -132,19 +155,51 @@
     <input type="button" value="確定" id="button">
 
     <script>
-    var luckyNum=parseInt(Math.random() * 100) + 1
-    var oButton=document.getElementById('button')
+        var luckyNum = parseInt(Math.random() * 100) + 1
+        var oButton = document.getElementById('button')
 
-    oButton.onclick=function(){
-        var oNumber=Number(document.getElementById('number').value)
-        if(oNumber>luckyNum){
-            alert('太大')
-        }else if(oNumber<luckyNum){
-        alert('太小')
-        }else{
-            alert('叮叮叮～')
+        oButton.onclick = function () {
+            var oNumber = Number(document.getElementById('number').value)
+            if (oNumber > luckyNum) {
+                alert('太大')
+            } else if (oNumber < luckyNum) {
+                alert('太小')
+            } else if(oNumber == luckyNum) {
+                alert('叮叮叮～恭喜猜中數字！')
+            }else{
+                alert('請輸入數字。')
+            }
         }
-    }
+    </script>
+
+    <h3>有三個按鈕 點擊後改變其樣式</h3>
+    <ul>
+        <li id="bt1"><a href="#">娛樂</a></li>
+        <li id='bt2'><a href="#">財經</a></li>
+        <li id='bt3'><a href="#">體育</a></li>
+    </ul>
+
+    <script>
+        var oBt1 = document.getElementById('bt1')
+        var oBt2 = document.getElementById('bt2')
+        var oBt3 = document.getElementById('bt3')
+        var now = oBt1
+
+        oBt1.onclick = function () {
+            now.className = ''
+            now = oBt1
+            now.className = 'active'
+        }
+        oBt2.onclick = function () {
+            now.className = ''
+            now = oBt2
+            now.className = 'active'
+        }
+        oBt3.onclick = function () {
+            now.className = ''
+            now = oBt3
+            now.className = 'active'
+        }
     </script>
 
 </body>
