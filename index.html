@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第一章：簡單操作實例</title>
+    <style>
+        h3 {
+            color: red;
+        }
+
+        #big,#small{
+            border: 1px solid grey;
+            padding: 3px;
+            background-color: black;
+            color: white;
+        }
+
+        #big:hover,#small:hover{
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h3>有一個輸入框跟一個按鈕 點擊按鈕輸出 ‘hello’ + 輸入框中內容</h3>
+    <input type="text" placeholder="請輸入內容" id="text" value="張三">
+    <input type="button" value="輸入完成" id="btn">
+
+    <script>
+        var oText = document.getElementById('text')
+        var oBt = document.getElementById('btn')
+
+        oBt.onclick = function () {
+            alert('hello' + oText.value)
+        }
+    </script>
+
+    <h3>有一個數字跟一個按鈕 點擊按鈕數字增加</h3>
+    <b id="num">0</b>
+    <input type="button" value="增加" id="btn2">
+
+    <script>
+        var oNum = document.getElementById('num')
+        var oBt2 = document.getElementById('btn2')
+        var i = 0
+
+        oBt2.onclick = function () {
+            i = i + 1
+            oNum.innerHTML = i
+        }
+    </script>
+
+    <h3>有一段文字跟兩個按鈕 點擊按鈕縮放字大小</h3>
+    <i id="big">變大</i> 
+    <i id="small">變小</i>
+    <br><br>
+    <b id="content">我是一段話。</b>
+
+    <script>
+        var oText2 = document.getElementById('content')
+        var oBtn1 = document.getElementById('big')
+        var oBtn2 = document.getElementById('small')
+        var size = 16
+
+        oBtn1.onclick = function () {
+            size = size + 1
+            oText2.style.fontSize = size + 'px'
+        }
+
+        oBtn2.onclick = function () {
+            size = size - 1
+            oText2.style.fontSize = size + 'px'
+        }
+    </script>
+
+    <h3>有兩個輸入框跟五個按鈕 加減乘除取餘</h3>
+    <input type="text" id="num1"> <input type="text" id="num2">
+    <input type="button" value="加法" id="b1">
+    <input type="button" value="減法" id="b2">
+    <input type="button" value="乘法" id="b3">
+    <input type="button" value="除法" id="b4">
+    <input type="button" value="取餘" id="b5">
+
+    <script>
+        var oNum1 = document.getElementById('num1')
+        var oNum2 = document.getElementById('num2')
+        var oB1 = document.getElementById('b1')
+        var oB2 = document.getElementById('b2')
+        var oB3 = document.getElementById('b3')
+        var oB4 = document.getElementById('b4')
+        var oB5 = document.getElementById('b5')
+
+        oB1.onclick = function () {
+            // 因為加法可以讓字符串拼接 value的值是字符串 所以要把字符串先轉成數字
+            var num1 = Number(oNum1.value)
+            var num2 = Number(oNum2.value)
+            alert(num1 + num2)
+        }
+
+        oB2.onclick = function () {
+            alert(oNum1.value - oNum2.value)
+        }
+
+        oB3.onclick = function () {
+            alert(oNum1.value * oNum2.value)
+        }
+
+        oB4.onclick = function () {
+            alert(oNum1.value / oNum2.value)
+        }
+
+        oB5.onclick = function () {
+            alert(oNum1.value % oNum2.value)
+        }
+    </script>
+
+    <h3>點擊頁面產生隨機數</h3>
+    <b id="random">我是隨機數</b>
+
+    <script>
+        document.onclick = function () {
+            document.getElementById('random').innerHTML=(parseInt(Math.random() * 100) + 1)
+        }
+    </script>
+
+    <h3>系統產生一個1~100隨機數 點擊按鈕確認是否猜中數字</h3>
+    <input type="text" id="number">
+    <input type="button" value="確定" id="button">
+
+    <script>
+    var luckyNum=parseInt(Math.random() * 100) + 1
+    var oButton=document.getElementById('button')
+
+    oButton.onclick=function(){
+        var oNumber=Number(document.getElementById('number').value)
+        if(oNumber>luckyNum){
+            alert('太大')
+        }else if(oNumber<luckyNum){
+        alert('太小')
+        }else{
+            alert('叮叮叮～')
+        }
+    }
+    </script>
+
+</body>
+
+</html>
